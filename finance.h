@@ -4,6 +4,12 @@
 #include<QSqlQuery>
 #include<QSqlQueryModel>
 #include<QDate>
+#include<QMap>
+#include <QChart>
+#include <QChartView>
+#include <QBarSeries>
+#include <QBarSet>
+
 
 
 
@@ -31,16 +37,25 @@ public:
     void setTVA(int TVA){this->TVA = TVA;}
     void setmontant(int montant){this->montant = montant;}
 
+
     bool ajouter();
     QSqlQueryModel * afficher();
     bool supprimer (int facture_id);
     bool modifier();
+    bool rembourser(int facture_id);
+    QSqlQueryModel * rechercher(QString);
+    void genererPDF(int facture_id, float montantRembourse);
+
+
+
+
 
 private:
        int facture_id;
        QDate date_de_facture, date_de_paiment;
        float TVA, montant;
        QString description;
+       QString test;
 
 
 
