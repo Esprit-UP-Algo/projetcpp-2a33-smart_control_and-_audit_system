@@ -17,18 +17,24 @@ public:
     void setDATE_VISITE(QDate DATE_VISITE){this->DATE_VISITE=DATE_VISITE;}
     void setRESULTAT_DE_RAPPORT(QString RESULTAT_DE_RAPPORT){this->RESULTAT_DE_RAPPORT=RESULTAT_DE_RAPPORT;}
     void setEXPERTISE_ID(int EXPERTISE_ID){this->EXPERTISE_ID=EXPERTISE_ID;}
-
-
     bool ajouter();
-
+    bool ajouter_resultat();
     QSqlQueryModel * afficher();
     bool supprimer(int);
     bool modifier();
+    QSqlQueryModel *rechercher(QString);
+   QSqlQueryModel* afficher_historique();
+   // int somme_cases_cochees();
+   // void envoyerNotification();
+   //void envoyerNotification(int);
+
 private:
+     QString test;
      int RAPPORT_ID;
      QString RESULTAT_DE_RAPPORT;
      QDate DATE_VISITE;
      int EXPERTISE_ID;
+
 };
 
 #endif // RAPPORT_H

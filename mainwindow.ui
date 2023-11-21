@@ -13,18 +13,21 @@
   <property name="windowTitle">
    <string>Gestion des Clients</string>
   </property>
-  <widget class="QWidget" name="centralWidget">
-   <widget class="QTabWidget" name="tabWidget">
+  <widget class="QWidget" name="widget">
+   <widget class="QTabWidget" name="rapport">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>10</y>
+      <y>0</y>
       <width>1021</width>
       <height>521</height>
      </rect>
     </property>
+    <property name="toolTip">
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+    </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -33,23 +36,27 @@
      <widget class="QGroupBox" name="groupBox">
       <property name="geometry">
        <rect>
-        <x>20</x>
-        <y>10</y>
-        <width>801</width>
-        <height>431</height>
+        <x>0</x>
+        <y>0</y>
+        <width>981</width>
+        <height>461</height>
        </rect>
       </property>
       <property name="title">
-       <string>Ajouter rapport</string>
+       <string/>
       </property>
       <widget class="QLabel" name="label">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>70</y>
-         <width>91</width>
-         <height>16</height>
+         <x>290</x>
+         <y>80</y>
+         <width>171</width>
+         <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>id_rapport</string>
@@ -58,11 +65,15 @@
       <widget class="QLabel" name="label_2">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>120</y>
-         <width>101</width>
-         <height>16</height>
+         <x>220</x>
+         <y>130</y>
+         <width>231</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Resultat_rapport</string>
@@ -71,21 +82,26 @@
       <widget class="QLineEdit" name="lineEdit_id">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>70</y>
-         <width>113</width>
-         <height>20</height>
+         <x>460</x>
+         <y>80</y>
+         <width>151</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QLabel" name="label_3">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>170</y>
-         <width>81</width>
-         <height>31</height>
+         <x>290</x>
+         <y>190</y>
+         <width>181</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
        </property>
        <property name="text">
         <string>Date_visite</string>
@@ -94,21 +110,26 @@
       <widget class="QDateEdit" name="dateEdit_date_rapport">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>170</y>
-         <width>110</width>
-         <height>22</height>
+         <x>460</x>
+         <y>200</y>
+         <width>151</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton">
        <property name="geometry">
         <rect>
-         <x>320</x>
-         <y>310</y>
-         <width>91</width>
-         <height>31</height>
+         <x>360</x>
+         <y>340</y>
+         <width>141</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+
+background-color: rgb(184, 184, 184);</string>
        </property>
        <property name="text">
         <string>Ajouter</string>
@@ -117,18 +138,18 @@
       <widget class="QLineEdit" name="lineEdit_EXPERTISE_ID">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>230</y>
-         <width>113</width>
-         <height>22</height>
+         <x>460</x>
+         <y>250</y>
+         <width>151</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QLabel" name="label_4">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>160</y>
+         <x>260</x>
+         <y>150</y>
          <width>81</width>
          <height>31</height>
         </rect>
@@ -140,11 +161,15 @@
       <widget class="QLabel" name="label_5">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>230</y>
-         <width>111</width>
-         <height>16</height>
+         <x>240</x>
+         <y>250</y>
+         <width>211</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>EXPERTISE_ID</string>
@@ -153,10 +178,10 @@
       <widget class="QComboBox" name="lineEdit_resultat_rapport">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>120</y>
-         <width>121</width>
-         <height>22</height>
+         <x>460</x>
+         <y>140</y>
+         <width>151</width>
+         <height>31</height>
         </rect>
        </property>
        <item>
@@ -183,8 +208,8 @@
       <widget class="QLabel" name="lblErreurId">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>100</y>
+         <x>400</x>
+         <y>110</y>
          <width>271</width>
          <height>20</height>
         </rect>
@@ -196,8 +221,8 @@
       <widget class="QLabel" name="lblErreurResultat">
        <property name="geometry">
         <rect>
-         <x>120</x>
-         <y>150</y>
+         <x>420</x>
+         <y>180</y>
          <width>281</width>
          <height>20</height>
         </rect>
@@ -209,9 +234,9 @@
       <widget class="QLabel" name="lblErreurEXpersiteID">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>260</y>
-         <width>151</width>
+         <x>400</x>
+         <y>290</y>
+         <width>251</width>
          <height>20</height>
         </rect>
        </property>
@@ -219,6 +244,54 @@
         <string/>
        </property>
       </widget>
+      <widget class="QLabel" name="label_11">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>-80</y>
+         <width>1591</width>
+         <height>641</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../../Downloads/0.png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_12">
+       <property name="geometry">
+        <rect>
+         <x>180</x>
+         <y>10</y>
+         <width>371</width>
+         <height>51</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color: rgb(154, 216, 198);
+font: 75 22pt &quot;MS Shell Dlg 2&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Ajouter Un Rapport</string>
+       </property>
+      </widget>
+      <zorder>label_11</zorder>
+      <zorder>label</zorder>
+      <zorder>label_2</zorder>
+      <zorder>lineEdit_id</zorder>
+      <zorder>label_3</zorder>
+      <zorder>dateEdit_date_rapport</zorder>
+      <zorder>pushButton</zorder>
+      <zorder>lineEdit_EXPERTISE_ID</zorder>
+      <zorder>label_4</zorder>
+      <zorder>label_5</zorder>
+      <zorder>lineEdit_resultat_rapport</zorder>
+      <zorder>lblErreurEXpersiteID</zorder>
+      <zorder>lblErreurResultat</zorder>
+      <zorder>lblErreurId</zorder>
+      <zorder>label_12</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -228,36 +301,584 @@
      <widget class="QTableView" name="tab_rapport">
       <property name="geometry">
        <rect>
-        <x>120</x>
-        <y>50</y>
-        <width>701</width>
+        <x>10</x>
+        <y>60</y>
+        <width>831</width>
         <height>371</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(0, 0, 0);
+font: 75 11pt &quot;MS Shell Dlg 2&quot;;</string>
       </property>
      </widget>
      <widget class="QComboBox" name="comboBox_supprimer">
       <property name="geometry">
        <rect>
-        <x>550</x>
-        <y>20</y>
-        <width>111</width>
-        <height>22</height>
+        <x>630</x>
+        <y>30</y>
+        <width>91</width>
+        <height>21</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(184, 184, 184);</string>
       </property>
      </widget>
      <widget class="QPushButton" name="pb_supprimer">
       <property name="geometry">
        <rect>
-        <x>680</x>
+        <x>730</x>
         <y>20</y>
-        <width>93</width>
-        <height>28</height>
+        <width>101</width>
+        <height>31</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+
+background-color: rgb(184, 184, 184);</string>
       </property>
       <property name="text">
        <string>Supprimer</string>
       </property>
      </widget>
+     <widget class="QLabel" name="label_13">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>-10</y>
+        <width>1081</width>
+        <height>491</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../Downloads/00.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_14">
+      <property name="geometry">
+       <rect>
+        <x>120</x>
+        <y>60</y>
+        <width>711</width>
+        <height>371</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../Downloads/Capture d'écran 2023-10-26 11523.png</pixmap>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBoxTri">
+      <property name="geometry">
+       <rect>
+        <x>490</x>
+        <y>440</y>
+        <width>121</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(184, 184, 184);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_16">
+      <property name="geometry">
+       <rect>
+        <x>270</x>
+        <y>440</y>
+        <width>211</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Tri selon Date de visite:</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pdf">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>320</y>
+        <width>51</width>
+        <height>28</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../../../image_qt/482216.png</normaloff>../../../../image_qt/482216.png</iconset>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_17">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>280</y>
+        <width>41</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>PDF:</string>
+      </property>
+     </widget>
+     <widget class="QLineEdit" name="lineEdit_recherche">
+      <property name="geometry">
+       <rect>
+        <x>50</x>
+        <y>30</y>
+        <width>211</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="placeholderText">
+       <string>Entrez l'ID du rapport à rechercher</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="stati">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>220</y>
+        <width>51</width>
+        <height>31</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="icon">
+       <iconset>
+        <normaloff>../../Downloads/pie-chart (1).png</normaloff>../../Downloads/pie-chart (1).png</iconset>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_18">
+      <property name="geometry">
+       <rect>
+        <x>890</x>
+        <y>180</y>
+        <width>51</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>stati:</string>
+      </property>
+     </widget>
+     <zorder>label_14</zorder>
+     <zorder>label_13</zorder>
+     <zorder>comboBox_supprimer</zorder>
+     <zorder>pb_supprimer</zorder>
+     <zorder>tab_rapport</zorder>
+     <zorder>comboBoxTri</zorder>
+     <zorder>label_16</zorder>
+     <zorder>pdf</zorder>
+     <zorder>label_17</zorder>
+     <zorder>lineEdit_recherche</zorder>
+     <zorder>stati</zorder>
+     <zorder>label_18</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_4">
+     <attribute name="title">
+      <string>remplissage de rapport</string>
+     </attribute>
+     <widget class="QLabel" name="label_19">
+      <property name="geometry">
+       <rect>
+        <x>20</x>
+        <y>-10</y>
+        <width>341</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(69, 209, 242);</string>
+      </property>
+      <property name="text">
+       <string>Le Rapport:</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_20">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>40</y>
+        <width>361</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(200, 241, 251);
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Politiques de santé et de sécurité :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_21">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>120</y>
+        <width>261</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(200, 241, 251);
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Gestion de la qualité :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_22">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>195</y>
+        <width>301</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(200, 241, 251);
+font: 12pt &quot;MS Shell Dlg 2&quot;;
+</string>
+      </property>
+      <property name="text">
+       <string>Maintenance préventive :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_23">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>245</y>
+        <width>331</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(200, 241, 251);
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Formation du personnel :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_24">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>330</y>
+        <width>321</width>
+        <height>16</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(200, 241, 251);
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Gestion environnementale :</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_25">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>410</y>
+        <width>481</width>
+        <height>51</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color:rgb(200, 241, 251);
+font: 12pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Analyse des risques et planification d'urgence :</string>
+      </property>
+     </widget>
+     <widget class="QComboBox" name="comboBox_remplissage">
+      <property name="geometry">
+       <rect>
+        <x>782</x>
+        <y>280</y>
+        <width>141</width>
+        <height>22</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(200, 241, 251);
+color: rgb(73, 92, 217);</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_26">
+      <property name="geometry">
+       <rect>
+        <x>770</x>
+        <y>250</y>
+        <width>171</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 10pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(200, 241, 251);</string>
+      </property>
+      <property name="text">
+       <string>choisir l'id de rapport</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="pushButton_enregistrer">
+      <property name="geometry">
+       <rect>
+        <x>810</x>
+        <y>320</y>
+        <width>93</width>
+        <height>61</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background-color: rgb(143, 227, 247);
+font: 75 9pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(0, 0, 0);</string>
+      </property>
+      <property name="text">
+       <string>Enregistrer</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_1">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>60</y>
+        <width>721</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Les politiques de santé et de sécurité au travail sont-elles élaborées et mises en œuvre?</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_2">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>90</y>
+        <width>641</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Le personnel est-il formé aux pratiques sécuritaires et aux protocoles d'urgence?</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_3">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>140</y>
+        <width>651</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Des normes de qualité sont-elles établies pour les produits ou les services?</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_4">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>170</y>
+        <width>681</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Des processus de contrôle qualité sont-ils en place pour assurer la conformité?</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_5">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>220</y>
+        <width>811</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>La maintenance régulière des équipements est-elle planifiée et réalisée pour éviter les pannes?</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_6">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>270</y>
+        <width>711</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Le personnel reçoit-il régulièrement une formation pour améliorer ses compétences?</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_7">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>300</y>
+        <width>621</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Des programmes de développement professionnel sont-ils en place?</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_8">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>350</y>
+        <width>801</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Les normes environnementales sont-elles respectées pour réduire l'impact écologique de l'usine?</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_9">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>380</y>
+        <width>811</width>
+        <height>41</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Des pratiques durables sont-elles adoptées pour minimiser les déchets et la pollution?</string>
+      </property>
+     </widget>
+     <widget class="QCheckBox" name="checkBox_10">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>450</y>
+        <width>761</width>
+        <height>20</height>
+       </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">color: rgb(255, 255, 255);
+font: 10pt &quot;MS Shell Dlg 2&quot;;</string>
+      </property>
+      <property name="text">
+       <string>Les risques potentiels sont-ils identifiés avec des plans d'urgence élaborés pour y faire face?</string>
+      </property>
+     </widget>
+     <widget class="QLabel" name="label_27">
+      <property name="geometry">
+       <rect>
+        <x>0</x>
+        <y>0</y>
+        <width>1181</width>
+        <height>541</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../Pictures/Screenshots/Capture d'écran 2023-10-26 112127.png</pixmap>
+      </property>
+     </widget>
+     <zorder>label_27</zorder>
+     <zorder>label_19</zorder>
+     <zorder>label_20</zorder>
+     <zorder>label_21</zorder>
+     <zorder>label_22</zorder>
+     <zorder>label_23</zorder>
+     <zorder>label_24</zorder>
+     <zorder>label_25</zorder>
+     <zorder>comboBox_remplissage</zorder>
+     <zorder>label_26</zorder>
+     <zorder>pushButton_enregistrer</zorder>
+     <zorder>checkBox_1</zorder>
+     <zorder>checkBox_2</zorder>
+     <zorder>checkBox_3</zorder>
+     <zorder>checkBox_4</zorder>
+     <zorder>checkBox_5</zorder>
+     <zorder>checkBox_6</zorder>
+     <zorder>checkBox_7</zorder>
+     <zorder>checkBox_8</zorder>
+     <zorder>checkBox_9</zorder>
+     <zorder>checkBox_10</zorder>
     </widget>
     <widget class="QWidget" name="tab_3">
      <attribute name="title">
@@ -266,11 +887,15 @@
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
        <rect>
-        <x>30</x>
-        <y>50</y>
-        <width>681</width>
-        <height>361</height>
+        <x>40</x>
+        <y>30</y>
+        <width>751</width>
+        <height>381</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">font: 75 16pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(72, 168, 192);</string>
       </property>
       <property name="title">
        <string>Modifier Rapport</string>
@@ -278,11 +903,16 @@
       <widget class="QLabel" name="label_6">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>40</y>
-         <width>91</width>
-         <height>16</height>
+         <x>110</x>
+         <y>70</y>
+         <width>211</width>
+         <height>51</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);
+</string>
        </property>
        <property name="text">
         <string>id_rapport</string>
@@ -291,11 +921,15 @@
       <widget class="QLabel" name="label_7">
        <property name="geometry">
         <rect>
-         <x>10</x>
-         <y>80</y>
-         <width>101</width>
-         <height>16</height>
+         <x>50</x>
+         <y>120</y>
+         <width>251</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Resultat_rapport</string>
@@ -304,11 +938,15 @@
       <widget class="QLabel" name="label_8">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>110</y>
-         <width>81</width>
+         <x>80</x>
+         <y>170</y>
+         <width>181</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>Date_visite</string>
@@ -317,21 +955,26 @@
       <widget class="QDateEdit" name="dateEdit_date_rapport_2">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>120</y>
-         <width>110</width>
-         <height>22</height>
+         <x>290</x>
+         <y>180</y>
+         <width>161</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QPushButton" name="pb_modifier">
        <property name="geometry">
         <rect>
-         <x>280</x>
-         <y>220</y>
-         <width>91</width>
+         <x>310</x>
+         <y>310</y>
+         <width>131</width>
          <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+
+background-color: rgb(184, 184, 184);</string>
        </property>
        <property name="text">
         <string>Modifier</string>
@@ -340,10 +983,10 @@
       <widget class="QLineEdit" name="lineEdit_EXPERTISE_ID_2">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>160</y>
-         <width>113</width>
-         <height>22</height>
+         <x>290</x>
+         <y>230</y>
+         <width>161</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
@@ -363,11 +1006,15 @@
       <widget class="QLabel" name="label_10">
        <property name="geometry">
         <rect>
-         <x>20</x>
-         <y>170</y>
-         <width>111</width>
-         <height>16</height>
+         <x>70</x>
+         <y>220</y>
+         <width>241</width>
+         <height>41</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 18pt &quot;MS Shell Dlg 2&quot;;
+color: rgb(255, 255, 255);</string>
        </property>
        <property name="text">
         <string>EXPERTISE_ID</string>
@@ -376,20 +1023,20 @@
       <widget class="QComboBox" name="comboBox_modifier">
        <property name="geometry">
         <rect>
-         <x>120</x>
-         <y>40</y>
-         <width>121</width>
-         <height>22</height>
+         <x>290</x>
+         <y>80</y>
+         <width>161</width>
+         <height>31</height>
         </rect>
        </property>
       </widget>
       <widget class="QComboBox" name="lineEdit_resultat_rapport_2">
        <property name="geometry">
         <rect>
-         <x>130</x>
-         <y>80</y>
-         <width>121</width>
-         <height>22</height>
+         <x>290</x>
+         <y>130</y>
+         <width>161</width>
+         <height>31</height>
         </rect>
        </property>
        <item>
@@ -416,11 +1063,16 @@
       <widget class="QPushButton" name="valider1">
        <property name="geometry">
         <rect>
-         <x>330</x>
-         <y>40</y>
-         <width>93</width>
-         <height>28</height>
+         <x>510</x>
+         <y>130</y>
+         <width>131</width>
+         <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+
+background-color: rgb(184, 184, 184);</string>
        </property>
        <property name="text">
         <string>Valider</string>
@@ -429,16 +1081,54 @@
       <widget class="QPushButton" name="reset">
        <property name="geometry">
         <rect>
-         <x>330</x>
-         <y>80</y>
-         <width>93</width>
-         <height>28</height>
+         <x>510</x>
+         <y>170</y>
+         <width>131</width>
+         <height>31</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+
+background-color: rgb(184, 184, 184);</string>
        </property>
        <property name="text">
         <string>Reset</string>
        </property>
       </widget>
+     </widget>
+     <widget class="QLabel" name="label_15">
+      <property name="geometry">
+       <rect>
+        <x>-15</x>
+        <y>5</y>
+        <width>1041</width>
+        <height>471</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string/>
+      </property>
+      <property name="pixmap">
+       <pixmap>../../Downloads/0000.png</pixmap>
+      </property>
+     </widget>
+     <zorder>label_15</zorder>
+     <zorder>groupBox_2</zorder>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Historique </string>
+     </attribute>
+     <widget class="QTableView" name="historique">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>70</y>
+        <width>731</width>
+        <height>361</height>
+       </rect>
+      </property>
      </widget>
     </widget>
    </widget>
