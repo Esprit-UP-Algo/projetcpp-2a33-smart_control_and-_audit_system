@@ -4,9 +4,11 @@
 #
 #-------------------------------------------------
 
-QT       += core gui sql
+QT       += core gui sql \
+    quick
 QT       +=charts
 QT += core gui printsupport
+QT       += core gui network
 
 QT += network
 
@@ -31,12 +33,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += \
+    QrCode.cpp \
         main.cpp \
         mainwindow.cpp \
     connection.cpp \
     rapport.cpp
 
 HEADERS += \
+    QrCode.h \
         mainwindow.h \
     connection.h \
     rapport.h

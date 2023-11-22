@@ -29,13 +29,19 @@
 #include <QSqlQuery>
 #include <QtDebug>
 #include <QVariant>
-
+#include "QrCode.h"
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 #include <cstdlib>
 //#include <QMailMessage>
+
+using qrcodegen::QrCode;
+using qrcodegen::QrSegment;
+
+
+using namespace qrcodegen;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -45,6 +51,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->comboBox_supprimer->setModel(R.afficher());//*
     ui->comboBox_modifier->setModel(R.afficher());//*
     ui->comboBox_remplissage->setModel(R.afficher());//*
+    //QString value=ui->label_28->text();
+
 
      //tri
     model = new QSqlQueryModel();
@@ -445,24 +453,62 @@ void MainWindow::on_pushButton_enregistrer_clicked() {
 
 
 
+void MainWindow::on_pushButton_2_clicked()
+{
+
+ ui->stackedWidget_3->setCurrentIndex(0);
+}
+
+
+void MainWindow::on_qrcodegen_2_clicked()
+{
+    {
+           using namespace qrcodegen;
+
+
+                       QTableView tab_rapport;
+                       QSqlQueryModel * Mod=new  QSqlQueryModel();
+                       QString value=ui->QRCODE->text();
+
+
+                            QSqlQuery qry;
 
 
 
 
+                            qry.prepare("select * from RAPPORT where RAPPORT_ID='"+value+"'");
+                            qry.exec();
+                            Mod->setQuery(qry);
+                            tab_rapport.setModel(Mod);
+
+/*QString test;
+     int RAPPORT_ID;
+     QString RESULTAT_DE_RAPPORT;
+     QDate DATE_VISITE;
+     int EXPERTISE_ID;*/
+
+                           QString RAPPORT_ID =tab_rapport.model()->data(tab_rapport.model()->index(0, 0)).toString().simplified();
+                           QString RESULTAT_DE_RAPPORT= tab_rapport.model()->data(tab_rapport.model()->index(0, 1)).toString().simplified();
+                           QString DATE_VISITE= tab_rapport.model()->data(tab_rapport.model()->index(0, 2)).toString().simplified();
+                           QString  EXPERTISE_ID= tab_rapport.model()->data(tab_rapport.model()->index(0, 3)).toString().simplified();
 
 
+                       QString text = "Le Resultat de Rapport d'ID " +RAPPORT_ID +" est "+RESULTAT_DE_RAPPORT+" le "+ DATE_VISITE ;
+                         // Create the QR Code object
+                         QrCode qr = QrCode::encodeText( text.toUtf8().data(), QrCode::Ecc::MEDIUM );
 
+                         qint32 sz = qr.getSize();
+                         QImage im(sz,sz, QImage::Format_RGB32);
+                           QRgb black = qRgb( 9,13,12 );
+                           QRgb white = qRgb(255,255,255);
+                         for (int y = 0; y < sz; y++)
+                           for (int x = 0; x < sz; x++)
+                             im.setPixel(x,y,qr.getModule(x, y) ? black : white );//setpixelmap tafichilek qr code
+                         ui->qrcodecommande_2->setPixmap( QPixmap::fromImage(im.scaled(200,200,Qt::KeepAspectRatio,Qt::FastTransformation),Qt::MonoOnly) );
+       }
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+void MainWindow::on_pushButton_3_clicked()
+{
+  ui->stackedWidget_3->setCurrentIndex(1);
+}

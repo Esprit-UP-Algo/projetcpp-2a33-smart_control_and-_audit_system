@@ -4,6 +4,21 @@
 #include <QString>
 #include <QDebug>
 #include "QSqlQueryModel"
+//
+#include <QTcpSocket>
+#include <QString>
+#include <QTextStream>
+#include <QDebug>
+#include <QMessageBox>
+//
+#pragma once
+
+#include <array>
+#include <cstdint>
+#include <stdexcept>
+#include <string>
+#include <vector>
+//
 class Rapport
 {
 public:

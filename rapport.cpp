@@ -7,7 +7,16 @@
 #include <QCheckBox>
 #include <QtWidgets>
 #include <QtNetwork>
-
+//
+#include <algorithm>
+#include <climits>
+#include <cstddef>
+#include <cstdlib>
+#include <cstring>
+#include <sstream>
+#include <stdexcept>
+#include <utility>
+//
 Rapport::Rapport()
 {
     RAPPORT_ID=0;

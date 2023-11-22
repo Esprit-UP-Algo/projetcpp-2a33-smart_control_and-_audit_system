@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1062</width>
-    <height>587</height>
+    <width>1136</width>
+    <height>602</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <widget class="QTabWidget" name="rapport">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>0</y>
-      <width>1021</width>
+      <x>40</x>
+      <y>10</y>
+      <width>1001</width>
       <height>521</height>
      </rect>
     </property>
@@ -27,7 +27,7 @@
      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -298,206 +298,323 @@ font: 75 22pt &quot;MS Shell Dlg 2&quot;;</string>
      <attribute name="title">
       <string>Afficher Rapport</string>
      </attribute>
-     <widget class="QTableView" name="tab_rapport">
-      <property name="geometry">
-       <rect>
-        <x>10</x>
-        <y>60</y>
-        <width>831</width>
-        <height>371</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">color: rgb(0, 0, 0);
-font: 75 11pt &quot;MS Shell Dlg 2&quot;;</string>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBox_supprimer">
-      <property name="geometry">
-       <rect>
-        <x>630</x>
-        <y>30</y>
-        <width>91</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(184, 184, 184);</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pb_supprimer">
-      <property name="geometry">
-       <rect>
-        <x>730</x>
-        <y>20</y>
-        <width>101</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
-
-background-color: rgb(184, 184, 184);</string>
-      </property>
-      <property name="text">
-       <string>Supprimer</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_13">
+     <widget class="QStackedWidget" name="stackedWidget_3">
       <property name="geometry">
        <rect>
         <x>0</x>
-        <y>-10</y>
-        <width>1081</width>
-        <height>491</height>
+        <y>10</y>
+        <width>991</width>
+        <height>461</height>
        </rect>
       </property>
-      <property name="text">
-       <string/>
+      <property name="currentIndex">
+       <number>1</number>
       </property>
-      <property name="pixmap">
-       <pixmap>../../Downloads/00.png</pixmap>
-      </property>
+      <widget class="QWidget" name="page">
+       <widget class="QLineEdit" name="QRCODE">
+        <property name="geometry">
+         <rect>
+          <x>350</x>
+          <y>60</y>
+          <width>221</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="placeholderText">
+         <string>Donner un ID de Rapport </string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="qrcodegen_2">
+        <property name="geometry">
+         <rect>
+          <x>580</x>
+          <y>60</y>
+          <width>41</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../../Downloads/OIP.jpeg</normaloff>../../Downloads/OIP.jpeg</iconset>
+        </property>
+       </widget>
+       <widget class="QLabel" name="qrcodecommande_2">
+        <property name="geometry">
+         <rect>
+          <x>370</x>
+          <y>130</y>
+          <width>241</width>
+          <height>251</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>10</y>
+          <width>51</width>
+          <height>41</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../../Downloads/OIP (2).jpeg</normaloff>../../Downloads/OIP (2).jpeg</iconset>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_28">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>-15</y>
+          <width>1081</width>
+          <height>581</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../Downloads/Capture d'écran 2023-11-22 003023.png</pixmap>
+        </property>
+       </widget>
+       <zorder>label_28</zorder>
+       <zorder>QRCODE</zorder>
+       <zorder>qrcodegen_2</zorder>
+       <zorder>qrcodecommande_2</zorder>
+       <zorder>pushButton_3</zorder>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <widget class="QLineEdit" name="lineEdit_recherche">
+        <property name="geometry">
+         <rect>
+          <x>40</x>
+          <y>20</y>
+          <width>211</width>
+          <height>22</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="placeholderText">
+         <string>chercher</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBox_supprimer">
+        <property name="geometry">
+         <rect>
+          <x>460</x>
+          <y>20</y>
+          <width>91</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(184, 184, 184);</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pb_supprimer">
+        <property name="geometry">
+         <rect>
+          <x>570</x>
+          <y>10</y>
+          <width>101</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 11pt &quot;MS Shell Dlg 2&quot;;
+
+background-color: rgb(184, 184, 184);</string>
+        </property>
+        <property name="text">
+         <string>Supprimer</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="stati">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>240</y>
+          <width>51</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../../Downloads/pie-chart (1).png</normaloff>../../Downloads/pie-chart (1).png</iconset>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_17">
+        <property name="geometry">
+         <rect>
+          <x>840</x>
+          <y>200</y>
+          <width>41</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string>PDF:</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_18">
+        <property name="geometry">
+         <rect>
+          <x>720</x>
+          <y>200</y>
+          <width>51</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string>stati:</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pdf">
+        <property name="geometry">
+         <rect>
+          <x>830</x>
+          <y>240</y>
+          <width>51</width>
+          <height>31</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../../../../image_qt/482216.png</normaloff>../../../../image_qt/482216.png</iconset>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="pushButton_2">
+        <property name="geometry">
+         <rect>
+          <x>770</x>
+          <y>340</y>
+          <width>51</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="icon">
+         <iconset>
+          <normaloff>../../Downloads/OIP (1).jpeg</normaloff>../../Downloads/OIP (1).jpeg</iconset>
+        </property>
+       </widget>
+       <widget class="QTableView" name="tab_rapport">
+        <property name="geometry">
+         <rect>
+          <x>10</x>
+          <y>50</y>
+          <width>661</width>
+          <height>331</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">color: rgb(0, 0, 0);
+font: 75 11pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_16">
+        <property name="geometry">
+         <rect>
+          <x>50</x>
+          <y>410</y>
+          <width>211</width>
+          <height>20</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
+        </property>
+        <property name="text">
+         <string>Tri selon Date de visite:</string>
+        </property>
+       </widget>
+       <widget class="QComboBox" name="comboBoxTri">
+        <property name="geometry">
+         <rect>
+          <x>310</x>
+          <y>410</y>
+          <width>121</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(184, 184, 184);</string>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_13">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>1021</width>
+          <height>541</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+        <property name="pixmap">
+         <pixmap>../../Pictures/Screenshots/00.png</pixmap>
+        </property>
+       </widget>
+       <widget class="QLabel" name="label_14">
+        <property name="geometry">
+         <rect>
+          <x>760</x>
+          <y>290</y>
+          <width>81</width>
+          <height>51</height>
+         </rect>
+        </property>
+        <property name="styleSheet">
+         <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;
+</string>
+        </property>
+        <property name="text">
+         <string>QrCode:</string>
+        </property>
+       </widget>
+       <zorder>label_13</zorder>
+       <zorder>lineEdit_recherche</zorder>
+       <zorder>comboBox_supprimer</zorder>
+       <zorder>pb_supprimer</zorder>
+       <zorder>stati</zorder>
+       <zorder>label_17</zorder>
+       <zorder>label_18</zorder>
+       <zorder>pdf</zorder>
+       <zorder>pushButton_2</zorder>
+       <zorder>tab_rapport</zorder>
+       <zorder>label_16</zorder>
+       <zorder>comboBoxTri</zorder>
+       <zorder>label_14</zorder>
+      </widget>
      </widget>
-     <widget class="QLabel" name="label_14">
-      <property name="geometry">
-       <rect>
-        <x>120</x>
-        <y>60</y>
-        <width>711</width>
-        <height>371</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="pixmap">
-       <pixmap>../../Downloads/Capture d'écran 2023-10-26 11523.png</pixmap>
-      </property>
-     </widget>
-     <widget class="QComboBox" name="comboBoxTri">
-      <property name="geometry">
-       <rect>
-        <x>490</x>
-        <y>440</y>
-        <width>121</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">background-color: rgb(184, 184, 184);</string>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_16">
-      <property name="geometry">
-       <rect>
-        <x>270</x>
-        <y>440</y>
-        <width>211</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
-      </property>
-      <property name="text">
-       <string>Tri selon Date de visite:</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="pdf">
-      <property name="geometry">
-       <rect>
-        <x>890</x>
-        <y>320</y>
-        <width>51</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../../../image_qt/482216.png</normaloff>../../../../image_qt/482216.png</iconset>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_17">
-      <property name="geometry">
-       <rect>
-        <x>890</x>
-        <y>280</y>
-        <width>41</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
-      </property>
-      <property name="text">
-       <string>PDF:</string>
-      </property>
-     </widget>
-     <widget class="QLineEdit" name="lineEdit_recherche">
-      <property name="geometry">
-       <rect>
-        <x>50</x>
-        <y>30</y>
-        <width>211</width>
-        <height>22</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="placeholderText">
-       <string>Entrez l'ID du rapport à rechercher</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="stati">
-      <property name="geometry">
-       <rect>
-        <x>890</x>
-        <y>220</y>
-        <width>51</width>
-        <height>31</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string/>
-      </property>
-      <property name="icon">
-       <iconset>
-        <normaloff>../../Downloads/pie-chart (1).png</normaloff>../../Downloads/pie-chart (1).png</iconset>
-      </property>
-     </widget>
-     <widget class="QLabel" name="label_18">
-      <property name="geometry">
-       <rect>
-        <x>890</x>
-        <y>180</y>
-        <width>51</width>
-        <height>20</height>
-       </rect>
-      </property>
-      <property name="styleSheet">
-       <string notr="true">font: 75 12pt &quot;MS Shell Dlg 2&quot;;</string>
-      </property>
-      <property name="text">
-       <string>stati:</string>
-      </property>
-     </widget>
-     <zorder>label_14</zorder>
-     <zorder>label_13</zorder>
-     <zorder>comboBox_supprimer</zorder>
-     <zorder>pb_supprimer</zorder>
-     <zorder>tab_rapport</zorder>
-     <zorder>comboBoxTri</zorder>
-     <zorder>label_16</zorder>
-     <zorder>pdf</zorder>
-     <zorder>label_17</zorder>
-     <zorder>lineEdit_recherche</zorder>
-     <zorder>stati</zorder>
-     <zorder>label_18</zorder>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
@@ -1138,7 +1255,7 @@ background-color: rgb(184, 184, 184);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1062</width>
+     <width>1136</width>
      <height>26</height>
     </rect>
    </property>
