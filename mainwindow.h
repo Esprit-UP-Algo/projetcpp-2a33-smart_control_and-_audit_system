@@ -19,6 +19,8 @@
 
 
 #include "finance.h"
+#include "arduino.h"
+#include <QMainWindow>
 
 QT_CHARTS_USE_NAMESPACE
 
@@ -57,10 +59,14 @@ private slots:
 
     void on_stati_2_clicked();
 
+    void on_CoutTotal_clicked();
+
 private:
     Ui::MainWindow *ui;
     Finance Fimp;
     QSqlQueryModel *model;
+    QByteArray data; // variable contenant les données reçues
+    Arduino A; // objet temporaire
 
 
 

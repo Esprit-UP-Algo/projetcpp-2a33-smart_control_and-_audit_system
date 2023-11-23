@@ -30,7 +30,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -69,7 +69,7 @@ font: 25pt &quot;Bahnschrift SemiCondensed&quot;;</string>
        <property name="geometry">
         <rect>
          <x>380</x>
-         <y>450</y>
+         <y>530</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -252,7 +252,7 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;</string>
        <property name="geometry">
         <rect>
          <x>650</x>
-         <y>450</y>
+         <y>530</y>
          <width>161</width>
          <height>41</height>
         </rect>
@@ -277,7 +277,60 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;</string>
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../../Downloads/finance 1920x1080 (1).png</pixmap>
+        <pixmap>../../Downloads/blue modern business presentation (5) (1).png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditexpertise_id">
+       <property name="geometry">
+        <rect>
+         <x>590</x>
+         <y>420</y>
+         <width>151</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_15">
+       <property name="geometry">
+        <rect>
+         <x>320</x>
+         <y>410</y>
+         <width>301</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:rgb(255, 255, 255);
+font: 25 10pt &quot;Perpetua Titling MT&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Id expertise</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblErreurEXpersiteID">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>480</y>
+         <width>681</width>
+         <height>17</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QLabel" name="lblErreurId">
+       <property name="geometry">
+        <rect>
+         <x>750</x>
+         <y>90</y>
+         <width>311</width>
+         <height>91</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
        </property>
       </widget>
       <zorder>label_2</zorder>
@@ -296,6 +349,10 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;</string>
       <zorder>DateEditpaiment</zorder>
       <zorder>DateEditfacture</zorder>
       <zorder>pb_modifier</zorder>
+      <zorder>lineEditexpertise_id</zorder>
+      <zorder>label_15</zorder>
+      <zorder>lblErreurEXpersiteID</zorder>
+      <zorder>lblErreurId</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -321,6 +378,9 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;</string>
         <height>41</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(217, 255, 255)</string>
+      </property>
      </widget>
      <widget class="QLabel" name="label_7">
       <property name="geometry">
@@ -330,6 +390,10 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;</string>
         <width>1131</width>
         <height>661</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(217, 255, 255)
+</string>
       </property>
       <property name="text">
        <string/>
@@ -386,6 +450,9 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;
         <height>41</height>
        </rect>
       </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(217, 255, 255)</string>
+      </property>
       <property name="text">
        <string>PDF</string>
       </property>
@@ -393,11 +460,14 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;
      <widget class="QPushButton" name="stati">
       <property name="geometry">
        <rect>
-        <x>760</x>
+        <x>800</x>
         <y>580</y>
         <width>131</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(217, 255, 255)</string>
       </property>
       <property name="text">
        <string>stat</string>
@@ -411,6 +481,9 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;
         <width>131</width>
         <height>41</height>
        </rect>
+      </property>
+      <property name="styleSheet">
+       <string notr="true">background:rgb(217, 255, 255)</string>
       </property>
       <property name="text">
        <string>stat</string>
@@ -460,21 +533,11 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;
         <string>ID facture</string>
        </property>
       </widget>
-      <widget class="QLineEdit" name="lineEditIdsuppressin">
-       <property name="geometry">
-        <rect>
-         <x>390</x>
-         <y>190</y>
-         <width>201</width>
-         <height>41</height>
-        </rect>
-       </property>
-      </widget>
       <widget class="QPushButton" name="pb_supprimer">
        <property name="geometry">
         <rect>
-         <x>620</x>
-         <y>280</y>
+         <x>580</x>
+         <y>260</y>
          <width>171</width>
          <height>41</height>
         </rect>
@@ -521,16 +584,26 @@ font: 25pt &quot;Bahnschrift SemiCondensed&quot;;</string>
         <string>Suppresion d'une facture</string>
        </property>
       </widget>
+      <widget class="QComboBox" name="comboBoxsupression">
+       <property name="geometry">
+        <rect>
+         <x>370</x>
+         <y>190</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
       <zorder>label_3</zorder>
       <zorder>label</zorder>
-      <zorder>lineEditIdsuppressin</zorder>
       <zorder>pb_supprimer</zorder>
       <zorder>label_11</zorder>
+      <zorder>comboBoxsupression</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="tab_4">
      <attribute name="title">
-      <string>Page</string>
+      <string>Remboursement</string>
      </attribute>
      <widget class="QGroupBox" name="groupBox_2">
       <property name="geometry">
@@ -552,6 +625,9 @@ font: 25pt &quot;Bahnschrift SemiCondensed&quot;;</string>
          <width>281</width>
          <height>51</height>
         </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(217, 255, 255)</string>
        </property>
        <property name="text">
         <string>Remboursement </string>
@@ -604,6 +680,121 @@ font: 25 10pt &quot;Perpetua Titling MT&quot;;</string>
       <zorder>on_pb_rembourser_clicked</zorder>
       <zorder>lineEditRembourser</zorder>
       <zorder>label_14</zorder>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="tab_5">
+     <attribute name="title">
+      <string>Cout total</string>
+     </attribute>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>30</x>
+        <y>30</y>
+        <width>781</width>
+        <height>391</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>GroupBox</string>
+      </property>
+      <widget class="QComboBox" name="comboBoxfacture">
+       <property name="geometry">
+        <rect>
+         <x>420</x>
+         <y>70</y>
+         <width>231</width>
+         <height>31</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="CoutTotal">
+       <property name="geometry">
+        <rect>
+         <x>580</x>
+         <y>190</y>
+         <width>161</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(217, 255, 255)
+
+</string>
+       </property>
+       <property name="text">
+        <string>Cout total </string>
+       </property>
+      </widget>
+      <widget class="QLineEdit" name="lineEditexper">
+       <property name="geometry">
+        <rect>
+         <x>470</x>
+         <y>130</y>
+         <width>113</width>
+         <height>25</height>
+        </rect>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_16">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>110</y>
+         <width>301</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:rgb(255, 255, 255);
+font: 25 10pt &quot;Perpetua Titling MT&quot;;</string>
+       </property>
+       <property name="text">
+        <string>Id expertise</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_17">
+       <property name="geometry">
+        <rect>
+         <x>0</x>
+         <y>20</y>
+         <width>791</width>
+         <height>371</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="pixmap">
+        <pixmap>../../Downloads/blue modern business presentation (5) (1).png</pixmap>
+       </property>
+      </widget>
+      <widget class="QLabel" name="idf_2">
+       <property name="geometry">
+        <rect>
+         <x>120</x>
+         <y>60</y>
+         <width>211</width>
+         <height>71</height>
+        </rect>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">color:rgb(255, 255, 255);
+font: 25 10pt &quot;Perpetua Titling MT&quot;;
+
+
+</string>
+       </property>
+       <property name="text">
+        <string>ID facture</string>
+       </property>
+      </widget>
+      <zorder>label_17</zorder>
+      <zorder>comboBoxfacture</zorder>
+      <zorder>CoutTotal</zorder>
+      <zorder>lineEditexper</zorder>
+      <zorder>label_16</zorder>
+      <zorder>idf_2</zorder>
      </widget>
     </widget>
    </widget>

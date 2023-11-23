@@ -24,6 +24,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
    //ui->lineEditIdfacture->setValidator(new QIntValidator(0,99999999,this));
+    ui->comboBoxfacture->setModel(Fimp.afficher());
+    ui->comboBoxsupression->setModel(Fimp.afficher());
 
     ui->tableViewFinance->setModel(Fimp.afficher());
 
@@ -36,6 +38,14 @@ MainWindow::MainWindow(QWidget *parent)
    ui->comboBoxTri->addItem("Decroissant");
 
    connect(ui->comboBoxTri, QOverload<int>::of(&QComboBox::currentIndexChanged), this, &MainWindow::on_comboBoxTri_currentIndexChanged);
+   int ret=A.connect_arduino(); // lancer la connexion à arduino
+       switch(ret){
+       case(0):qDebug()<< "arduino is available and connected to : "<< A.getarduino_port_name();
+           break;
+       case(1):qDebug() << "arduino is available but not connected to :" <<A.getarduino_port_name();
+          break;
+       case(-1):qDebug() << "arduino is not available";
+       }
 
 
 
@@ -54,46 +64,76 @@ MainWindow::~MainWindow()
 void MainWindow::on_pb_ajouter_clicked()
 
 {
-  int facture_id = ui->lineEditIdfacture->text().toInt();
+    QString str_FACTURE_ID = ui->lineEditIdfacture->text();
+      int facture_id = str_FACTURE_ID.toInt();
+
   QDate date_de_facture= ui->DateEditfacture->date();
   QDate date_de_paiment= ui->DateEditpaiment->date();
   QString  description= ui->lineEditdescription->text();
   float TVA = ui->lineEditTVA->text().toFloat();
   float montant = ui->lineEditmontant->text().toFloat();
+  QString str_EXPERTISE_ID = ui->lineEditexpertise_id->text();
+      int expertise_id =str_EXPERTISE_ID.toInt();
 
-  if (facture_id <= 0 || description.isEmpty() || TVA <= 0) {
-        QMessageBox::critical(nullptr, QObject::tr("Erreur de saisie"),
-            QObject::tr("Veuillez vérifier les champs de saisie."), QMessageBox::Ok);
-        return; // Arrêtez l'ajout si la validation échoue
+
+
+      ui->lblErreurId->setText("");
+      ui->lblErreurEXpersiteID->setText("");
+
+
+  bool isValid = true;
+
+     if (str_FACTURE_ID.isEmpty()) {
+         ui->lblErreurId->setText("<font color='black'>ID de FACTURE ne peut pas être vide !</font>");
+         isValid = false;
+     }
+
+
+  QSqlQuery checkQuery;
+    checkQuery.prepare("SELECT EXPERTISE_ID FROM FINANCE WHERE EXPERTISE_ID = :EXPERTISE_ID");
+    checkQuery.bindValue(":EXPERTISE_ID", expertise_id);
+    if (checkQuery.exec() && checkQuery.next()) {
+        ui->lblErreurEXpersiteID->setText("<font color='black'>ID d'expertise existe déjà !</font>");
+        isValid = false;
     }
+    checkQuery.prepare("SELECT FACTURE_ID FROM FINANCE WHERE FACTURE_ID = :FACTURE_ID");
+        checkQuery.bindValue(":FACTURE_ID", facture_id);
+        if (checkQuery.exec() && checkQuery.next()) {
+            ui->lblErreurId->setText("<font color='black'>FACTURE ID existe déjà !</font>");
+            isValid = false;
+        }
 
-  Finance F(facture_id, date_de_facture, date_de_paiment,TVA, description, montant);
 
+        if (isValid) {
+
+  Finance F(facture_id, date_de_facture, date_de_paiment,TVA, description, montant, expertise_id);
   bool test= F.ajouter();
   if (test)
   {
-      ui->tableViewFinance->setModel(Fimp.afficher());
       QMessageBox::information(nullptr, QObject::tr("OK"),
                   QObject::tr("Ajout effectue.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
+      ui->tableViewFinance->setModel(Fimp.afficher());
 
 }
-  else
+  else {
       QMessageBox::critical(nullptr, QObject::tr("Not OK"),
                   QObject::tr("Ajout non effectue.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
 
-
-
+     }
+}
 }
 
 void MainWindow::on_pb_supprimer_clicked()
 {
-    int facture_id = ui->lineEditIdsuppressin->text().toInt();
+
+     int facture_id = ui->comboBoxsupression->currentText().toInt();
         bool test = Fimp.supprimer(facture_id);
 
         if (test) {
              ui->tableViewFinance->setModel(Fimp.afficher());
+             ui->comboBoxsupression->setModel(Fimp.afficher());
 
             QMessageBox::information(nullptr, QObject::tr("OK"),
                                      QObject::tr("Deletion successful.\n"
@@ -118,13 +158,15 @@ void MainWindow::on_pb_modifier_clicked()
     float TVA = ui->lineEditTVA->text().toFloat();
     float montant = ui->lineEditmontant->text().toFloat();
 
+    int expertise_id = ui->lineEditexpertise_id->text().toInt();
+
     if (description.isEmpty() || TVA <= 0 || montant <= 0) {
           QMessageBox::critical(nullptr, QObject::tr("Erreur de modification"),
               QObject::tr("Veuillez vérifier les champs de saisie."), QMessageBox::Ok);
           return; // Arrêtez la modification si la validation échoue
       }
 
-      Finance F(facture_id, date_de_facture, date_de_paiment, TVA, description, montant);
+      Finance F(facture_id, date_de_facture, date_de_paiment, TVA, description, montant, expertise_id);
 
       bool test = F.modifier();
       if (test)
@@ -170,7 +212,6 @@ void MainWindow::on_on_pb_rembourser_clicked_clicked()
         }
 
         bool remboursementReussi = Fimp.rembourser(facture_id);
-
         if (remboursementReussi) {
             ui->tableViewFinance->setModel(Fimp.afficher());
             QMessageBox::information(nullptr, QObject::tr("Remboursement réussi"),
@@ -181,11 +222,6 @@ void MainWindow::on_on_pb_rembourser_clicked_clicked()
         }
 
 }
-
-
-
-
-
 
 
 
@@ -249,13 +285,14 @@ void MainWindow::on_stati_clicked()
 void MainWindow::on_lineEdit_recherche_textChanged(const QString &arg1)
 {
     Finance F;
-                  QString FACTURE_ID=ui->lineEdit_recherche->text();
-                 ui->tableViewFinance->setModel(F.rechercher(FACTURE_ID));
-                ui->tableViewFinance->clearSelection();
 
-          if (arg1.isEmpty() && ui->lineEdit_recherche->hasFocus() && !ui->lineEdit_recherche->hasSelectedText()) {
-              ui->lineEdit_recherche->setToolTip("Entrez l'ID de Facture à rechercher");
-          }
+          if (arg1!="")
+                  ui->tableViewFinance->setModel(F.rechercher(arg1));
+              else {
+                  ui->tableViewFinance->setModel(F.rechercher(arg1));
+
+              }
+
 }
 
 void MainWindow::on_pushButton_clicked()
@@ -382,3 +419,22 @@ void MainWindow::on_stati_2_clicked()
            barChartView->resize(1000, 500);
            barChartView->show();
 }
+
+void MainWindow::on_CoutTotal_clicked()
+{
+    int facture_id = ui->comboBoxfacture->currentText().toInt();
+     int expertise_id = ui->lineEditexper->text().toInt();
+
+
+       Fimp.Montanttotal(facture_id, expertise_id);
+
+           // Ajoutez des messages de débogage pour afficher le modèle après la mise à jour
+           qDebug() << "Affichage du modèle après la mise à jour :";
+           ui->tableViewFinance->setModel(Fimp.afficher());
+
+           QMessageBox::information(nullptr, QObject::tr("Calcul du montant total"),
+               QObject::tr("Calcul et mise à jour du montant total effectués avec succès."), QMessageBox::Ok);
+       }
+
+
+

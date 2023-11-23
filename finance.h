@@ -20,7 +20,7 @@ public:
 
 
     Finance();
-    Finance (int, QDate,QDate, float,QString, float);
+    Finance (int, QDate,QDate, float,QString, float,int);
 
     //GETTERS
     int get_idf(){return facture_id;}
@@ -45,6 +45,8 @@ public:
     bool rembourser(int facture_id);
     QSqlQueryModel * rechercher(QString);
     void genererPDF(int facture_id, float montantRembourse);
+    void generePDF(int facture_id, float montantTotal, float coutUnitaire, int nombreDeVisites, float coutMateriel );
+    void Montanttotal(int facture_id, int expertise_id);
 
 
 
@@ -56,6 +58,7 @@ private:
        float TVA, montant;
        QString description;
        QString test;
+       int expertise_id;
 
 
 
