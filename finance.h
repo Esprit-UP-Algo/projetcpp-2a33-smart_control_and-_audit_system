@@ -29,6 +29,7 @@ public:
     QString get_description(){return description;}
     int get_TVA(){return TVA;}
     int get_montant(){return montant;}
+    float getMontantTotal(int facture_id, int expertise_id);
     //SETTERS
     void setidf(int facture_id){this->facture_id = facture_id;}
     void setdatefacture(QDate date_de_facture){this->date_de_facture= date_de_facture;}
@@ -36,6 +37,7 @@ public:
     void setdescription(QString description){this->description = description;}
     void setTVA(int TVA){this->TVA = TVA;}
     void setmontant(int montant){this->montant = montant;}
+
 
 
     bool ajouter();
@@ -46,7 +48,7 @@ public:
     QSqlQueryModel * rechercher(QString);
     void genererPDF(int facture_id, float montantRembourse);
     void generePDF(int facture_id, float montantTotal, float coutUnitaire, int nombreDeVisites, float coutMateriel );
-    void Montanttotal(int facture_id, int expertise_id);
+    float Montanttotal(int facture_id, int expertise_id);
 
 
 

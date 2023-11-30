@@ -26,6 +26,7 @@ MainWindow::MainWindow(QWidget *parent)
    //ui->lineEditIdfacture->setValidator(new QIntValidator(0,99999999,this));
     ui->comboBoxfacture->setModel(Fimp.afficher());
     ui->comboBoxsupression->setModel(Fimp.afficher());
+    ui->comboBoxRembourse->setModel(Fimp.afficher());
 
     ui->tableViewFinance->setModel(Fimp.afficher());
 
@@ -60,7 +61,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_pb_ajouter_clicked()
 
 {
@@ -75,11 +75,8 @@ void MainWindow::on_pb_ajouter_clicked()
   QString str_EXPERTISE_ID = ui->lineEditexpertise_id->text();
       int expertise_id =str_EXPERTISE_ID.toInt();
 
-
-
       ui->lblErreurId->setText("");
       ui->lblErreurEXpersiteID->setText("");
-
 
   bool isValid = true;
 
@@ -87,7 +84,6 @@ void MainWindow::on_pb_ajouter_clicked()
          ui->lblErreurId->setText("<font color='black'>ID de FACTURE ne peut pas être vide !</font>");
          isValid = false;
      }
-
 
   QSqlQuery checkQuery;
     checkQuery.prepare("SELECT EXPERTISE_ID FROM FINANCE WHERE EXPERTISE_ID = :EXPERTISE_ID");
@@ -113,7 +109,10 @@ void MainWindow::on_pb_ajouter_clicked()
       QMessageBox::information(nullptr, QObject::tr("OK"),
                   QObject::tr("Ajout effectue.\n"
                               "Click Cancel to exit."), QMessageBox::Cancel);
+
       ui->tableViewFinance->setModel(Fimp.afficher());
+
+       ui->comboBoxfacture->addItem(QString::number(facture_id));
 
 }
   else {
@@ -203,7 +202,8 @@ void MainWindow::on_comboBoxTri_currentIndexChanged(int index)
 void MainWindow::on_on_pb_rembourser_clicked_clicked()
 {
 
-     int facture_id = ui->lineEditRembourser->text().toInt();
+    // int facture_id = ui->lineEditRembourser->text().toInt();
+             int facture_id = ui->comboBoxRembourse->currentText().toInt();
 
         if (facture_id <= 0) {
             QMessageBox::critical(nullptr, QObject::tr("Erreur de saisie"),
@@ -351,7 +351,7 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::on_stati_2_clicked()
 {
-    // Construire la requête SQL pour obtenir le nombre de factures pour chaque mois
+   /* // Construire la requête SQL pour obtenir le nombre de factures pour chaque mois
            QString queryStr = "SELECT EXTRACT(MONTH FROM DATE_DE_FACTURE) AS Mois, COUNT(DISTINCT FACTURE_ID) AS NombreDeFactures FROM FINANCE GROUP BY EXTRACT(MONTH FROM DATE_DE_FACTURE)";
            QSqlQueryModel *model = new QSqlQueryModel();
            model->setQuery(queryStr);
@@ -417,24 +417,42 @@ void MainWindow::on_stati_2_clicked()
            QChartView *barChartView = new QChartView(barChart);
            barChartView->setRenderHint(QPainter::Antialiasing);
            barChartView->resize(1000, 500);
-           barChartView->show();
+           barChartView->show();*/
 }
 
 void MainWindow::on_CoutTotal_clicked()
 {
     int facture_id = ui->comboBoxfacture->currentText().toInt();
-     int expertise_id = ui->lineEditexper->text().toInt();
+        int expertise_id = ui->lineEditexper->text().toInt();
 
+        Fimp.Montanttotal(facture_id, expertise_id);
+          ui->tableViewFinance->setModel(Fimp.afficher());
 
-       Fimp.Montanttotal(facture_id, expertise_id);
+        float Montanttotal = Fimp.Montanttotal(facture_id, expertise_id);
 
-           // Ajoutez des messages de débogage pour afficher le modèle après la mise à jour
-           qDebug() << "Affichage du modèle après la mise à jour :";
-           ui->tableViewFinance->setModel(Fimp.afficher());
+        if (Montanttotal != -1) {
+            // Utilisez la valeur du Montanttotal comme nécessaire
+            qDebug() << "Valeur envoyée à Arduino : " << Montanttotal;
 
-           QMessageBox::information(nullptr, QObject::tr("Calcul du montant total"),
-               QObject::tr("Calcul et mise à jour du montant total effectués avec succès."), QMessageBox::Ok);
-       }
+            // Convertissez le Montanttotal en chaîne de caractères
+            QString montantString = QString::number(Montanttotal);
+
+            // Envoyez la chaîne de caractères à Arduino
+            A.write_to_arduino(montantString.toUtf8().constData()); // la communication entre votre programme Qt et Arduino se fait souvent via des chaînes de caractères
+
+            qDebug() << "Après l'appel à A.write_to_arduino";
+        } else {
+            // Gestion de l'échec de récupération du montant total
+            qDebug() << "Erreur lors de la récupération du Montant Total.";
+
+            // Ajoutez des messages de débogage pour afficher le modèle après la mise à jour
+            qDebug() << "Affichage du modèle après la mise à jour :";
+           // ui->tableViewFinance->setModel(Fimp.afficher());
+
+            QMessageBox::information(nullptr, QObject::tr("Calcul du montant total"),
+                                     QObject::tr("Calcul et mise à jour du montant total effectués avec succès."), QMessageBox::Ok);
+        }
+}
 
 
 

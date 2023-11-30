@@ -1,6 +1,8 @@
 #include "finance.h"
 #include "Connexion.h"
 #include <QPdfWriter>
+#include <QSerialPort>
+#include <QSerialPortInfo>
 
 Finance::Finance()
 {
@@ -189,12 +191,13 @@ QSqlQueryModel *Finance::rechercher(QString test)
            return  model;//contenant les résultats de la recherche
 }
 
-void Finance::Montanttotal(int facture_id, int expertise_id)
+float Finance::Montanttotal(int facture_id, int expertise_id)
 {
 
     QSqlQuery query;
         query.prepare("SELECT NOMBRE_UNITAIRE, NOMBRE_VISITE, COUT_MATERIEL FROM EXPERTISE WHERE EXPERTISE_ID = :EXPERTISE_ID");
         query.bindValue(":EXPERTISE_ID", expertise_id);
+
 
         if (query.exec() && query.next())
         {
@@ -218,24 +221,27 @@ void Finance::Montanttotal(int facture_id, int expertise_id)
                     updateQuery.bindValue(":MONTANT_TOTAL", montant_string);
 
                     qDebug() << "Requête SQL d'UPDATE : " << updateQuery.lastQuery();
-
                     if (updateQuery.exec())
-                    {
-                        qDebug() << "Montant mis à jour avec succès.";
+                            {
+                                qDebug() << "Montant mis à jour avec succès.";
 
-                        // Appel de la fonction genererPDF pour créer le PDF avec le montant total
-                        generePDF(facture_id, montantTotal, coutUnitaire,nombreDeVisites, coutMateriel );
+                                // Appel de la fonction genererPDF pour créer le PDF avec le montant total
+                                generePDF(facture_id, montantTotal, coutUnitaire, nombreDeVisites, coutMateriel);
+
+                                                               return montantTotal;
+                            }
+                            else
+                            {
+                                qDebug() << "Erreur lors de la mise à jour du montant:" << updateQuery.lastError().text();
+                            }
+                        }
+                        else
+                        {
+                            qDebug() << "Erreur lors de la récupération des informations depuis la table Expertise:" << query.lastError().text();
+
+                        }
+        return -1;
                     }
-                    else
-                    {
-                        qDebug() << "Erreur lors de la mise à jour du montant:" << updateQuery.lastError().text();
-                    }
-                }
-                else
-                {
-                    qDebug() << "Erreur lors de la récupération des informations depuis la table Expertise:" << query.lastError().text();
-                }
-            }
 
 void Finance::generePDF(int facture_id, float montantTotal, float coutUnitaire, int nombreDeVisites, float coutMateriel )
 {
@@ -282,3 +288,4 @@ void Finance::generePDF(int facture_id, float montantTotal, float coutUnitaire, 
 
     painter.end();
 }
+
