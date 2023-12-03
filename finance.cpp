@@ -126,7 +126,8 @@ bool Finance::rembourser(int facture_id)
 }
 void Finance::genererPDF(int facture_id, float montantRembourse)
 {
-    QPdfWriter pdf(QString("C:/FINANCE/Remboursement_Facture_%1.pdf").arg(facture_id));
+
+    QPdfWriter pdf(QString("C:/loujain/Remboursement_Facture_%1.pdf").arg(facture_id));
     QPainter painter(&pdf);
     int i = 4000;
 
@@ -201,9 +202,9 @@ float Finance::Montanttotal(int facture_id, int expertise_id)
 
         if (query.exec() && query.next())
         {
-            float coutUnitaire = query.value(0).toFloat();
-            int nombreDeVisites = query.value(1).toInt();
-            float coutMateriel = query.value(2).toFloat();
+            float coutUnitaire = query.value(1).toFloat();
+            int nombreDeVisites = query.value(2).toInt();
+            float coutMateriel = query.value(3).toFloat();
 
             qDebug() << "Valeurs récupérées depuis EXPERTISE - NOMBRE_UNITAIRE:" << coutUnitaire << ", NOMBRE_VISITE:" << nombreDeVisites << ", COUT_MATERIEL:" << coutMateriel;
 
@@ -245,7 +246,7 @@ float Finance::Montanttotal(int facture_id, int expertise_id)
 
 void Finance::generePDF(int facture_id, float montantTotal, float coutUnitaire, int nombreDeVisites, float coutMateriel )
 {
-    QPdfWriter pdf(QString("C:/FINANCE/Facture_%1.pdf").arg(facture_id));
+    QPdfWriter pdf(QString("C:/loujain/Facture_%1.pdf").arg(facture_id));
     QPainter painter(&pdf);
     int i = 4000;
 

@@ -36,6 +36,15 @@ int Arduino::connect_arduino()
                 serial->setParity(QSerialPort::NoParity); //1 bit de parité optionnel
                 serial->setStopBits(QSerialPort::OneStop); //Nombre de bits de stop : 1
                 serial->setFlowControl(QSerialPort::NoFlowControl);
+
+
+
+
+
+
+
+
+
                 return 0;
             }
             return 1;

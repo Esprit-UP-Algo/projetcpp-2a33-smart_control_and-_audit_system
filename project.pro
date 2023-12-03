@@ -2,6 +2,7 @@ QT       += core gui sql
 QT+= sql
 QT+= charts
 QT       += core gui  serialport
+QT += network
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -22,13 +23,17 @@ SOURCES += \
     arduino.cpp \
     finance.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    qrcode.cpp \
+    rapport.cpp
 
 HEADERS += \
     Connexion.h \
     arduino.h \
     finance.h \
-    mainwindow.h
+    mainwindow.h \
+    qrcode.h \
+    rapport.h
 
 FORMS += \
     mainwindow.ui

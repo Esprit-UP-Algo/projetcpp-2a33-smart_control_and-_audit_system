@@ -10,10 +10,6 @@
 #include <QBarSeries>
 #include <QBarSet>
 
-
-
-
-
 class Finance
 {
 public:
